@@ -19,15 +19,14 @@ export const ui = {
     description:
       'Product manager le jour, je conçois, designe et développe des sites complets : boutiques, produits avec comptes et paiement, sites vitrines.',
     h1: ['Je conçois et construis des sites', 'taillés pour un usage réel.'],
-    sub: 'Product manager le jour, je livre seul ce qui demande normalement une équipe : cadrage, design, développement et mise en ligne.',
+    sub: 'Je livre seul ce qui demande normalement une équipe : cadrage, design, développement et mise en ligne.',
     ctaPrimary: 'Réserver un créneau',
     workEyebrow: 'Sélection',
     workCount: '4 projets',
     aboutEyebrow: 'À propos',
-    aboutLead:
-      'Product manager chez Skipr, sur les produits de dépense et de cartes corporate : cadrer le problème avant d’écrire la première ligne de code.',
+    aboutLead: 'Product manager dans une fintech.',
     aboutBody:
-      "À côté, je conçois et je développe des sites de bout en bout. L'IA accélère l'écriture du code, elle ne remplace ni le cadrage, ni les décisions de design, ni la mise en ligne : chaque projet ci-dessus est passé par les quatre étapes, seul.",
+      "Je travaille beaucoup avec l’IA — pour coder, prototyper, itérer vite — et j’ai une vraie appétence pour l’UX et le design d’interface. C’est ce mélange qui me permet de faire tenir un site de bout en bout, seul.",
     stackLabel: 'Ce avec quoi je travaille',
     contactTitle: 'Un projet en tête ?',
     contactSub: 'Réponse sous 24 h · Paris, à distance',
@@ -54,14 +53,14 @@ export const ui = {
     description:
       'Product manager by day, I design and build complete websites: shops, products with accounts and payments, marketing sites.',
     h1: ['I design and build websites', 'made for real use.'],
-    sub: 'Product manager by day, I ship alone what usually takes a team: scoping, design, development and launch.',
+    sub: 'I ship alone what usually takes a team: scoping, design, development and launch.',
     ctaPrimary: 'Book a call',
     workEyebrow: 'Selected work',
     workCount: '4 projects',
     aboutEyebrow: 'About',
-    aboutLead: 'Product manager at Skipr, on spend management and corporate cards: framing the problem before the first line of code.',
+    aboutLead: 'Product manager in a fintech.',
     aboutBody:
-      'On the side, I design and build websites end to end. AI speeds up the code, it does not replace the scoping, the design decisions or the launch: every project above went through all four steps, alone.',
+      'I work a lot with AI — to code, prototype and iterate fast — and I have a real appetite for UX and interface design. That mix is what lets me take a site from start to finish, alone.',
     stackLabel: 'What I work with',
     contactTitle: 'Got a project in mind?',
     contactSub: 'Reply within 24h · Paris, remote',
