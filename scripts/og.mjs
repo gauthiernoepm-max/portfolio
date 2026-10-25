@@ -34,7 +34,7 @@ const html = `<!doctype html>
 <body>
   <div class="dots"></div>
   <div class="brand"><span class="mark">G</span> Gauthier Combes</div>
-  <h1>Je conçois et construis<br><span>des sites taillés pour un usage réel.</span></h1>
+  <h1>Je dessine et je code des sites.<br><span>Du premier croquis à la mise en ligne.</span></h1>
   <div class="bottom">
     <div class="projects"><b>Sélection</b>Kosmos · Culture Club · Incxnnue Lab · Ghys &amp; Martine</div>
     <div class="meta">Product manager · Paris<br>gauthiernoepm-max.github.io/portfolio</div>
