@@ -23,7 +23,7 @@ export const projects: Project[] = [
     name: 'Kosmos',
     year: '2026',
     status: 'live',
-    url: 'https://kosmos-lab.vercel.app/fr',
+    url: 'https://www.kosmos-lab.com/fr',
     stack: ['Next.js', 'TypeScript', 'Tailwind', 'Stripe', 'FR / EN'],
     cover: '/shots/kosmos.webp',
     coverAlt: 'Page d’accueil de Kosmos, marque de lampes imprimées en 3D',
