@@ -21,12 +21,11 @@ export const ui = {
     h1: ['Je conçois et construis des sites', 'taillés pour un usage réel.'],
     sub: 'Product manager le jour, je livre seul ce qui demande normalement une équipe : cadrage, design, développement et mise en ligne.',
     ctaPrimary: 'Réserver un créneau',
-    ctaSecondary: 'Voir les 4 projets',
     workEyebrow: 'Sélection',
     workCount: '4 projets',
     aboutEyebrow: 'À propos',
     aboutLead:
-      'Product manager chez Skipr, où je travaille sur des produits de dépense et de cartes.',
+      'Product manager chez Skipr, sur les produits de dépense et de cartes corporate : cadrer le problème avant d’écrire la première ligne de code.',
     aboutBody:
       "À côté, je conçois et je développe des sites de bout en bout. L'IA accélère l'écriture du code, elle ne remplace ni le cadrage, ni les décisions de design, ni la mise en ligne : chaque projet ci-dessus est passé par les quatre étapes, seul.",
     stackLabel: 'Ce avec quoi je travaille',
@@ -57,11 +56,10 @@ export const ui = {
     h1: ['I design and build websites', 'made for real use.'],
     sub: 'Product manager by day, I ship alone what usually takes a team: scoping, design, development and launch.',
     ctaPrimary: 'Book a call',
-    ctaSecondary: 'See the 4 projects',
     workEyebrow: 'Selected work',
     workCount: '4 projects',
     aboutEyebrow: 'About',
-    aboutLead: 'Product manager at Skipr, working on spend and card products.',
+    aboutLead: 'Product manager at Skipr, on spend management and corporate cards: framing the problem before the first line of code.',
     aboutBody:
       'On the side, I design and build websites end to end. AI speeds up the code, it does not replace the scoping, the design decisions or the launch: every project above went through all four steps, alone.',
     stackLabel: 'What I work with',

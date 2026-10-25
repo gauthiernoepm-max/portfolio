@@ -25,13 +25,6 @@ const href = withBase(`/${lang}/work/${project.slug}/`);
       loading={eager ? 'eager' : 'lazy'}
       decoding="async"
     />
-    {
-      project.status === 'soon' && (
-        <span class="absolute right-2 top-2 rounded-full bg-white/92 px-2 py-[2px] text-[9.5px] font-semibold uppercase tracking-[0.06em] text-[#3f3f46] backdrop-blur">
-          {t.soon}
-        </span>
-      )
-    }
   </div>
   <div class="bg-bg px-3 py-3">
     <div class="flex items-baseline justify-between gap-2">
@@ -39,7 +32,15 @@ const href = withBase(`/${lang}/work/${project.slug}/`);
       <span class="text-[11px] tabular-nums text-muted">{project.year}</span>
     </div>
     <p class="mb-2 mt-0.5 text-[12px] leading-snug text-muted">{project.tagline[lang]}</p>
-    <div class="flex flex-wrap gap-1">
+    <div class="flex flex-wrap items-center gap-1">
+      {
+        project.status === 'soon' && (
+          <span class="mr-0.5 inline-flex items-center gap-1 rounded-full border border-line px-1.5 py-[1px] text-[10.5px] text-muted">
+            <span class="size-1 rounded-full bg-[#eab308]" aria-hidden="true" />
+            {t.soon}
+          </span>
+        )
+      }
       {project.stack.slice(0, 3).map((item) => <span class="tag">{item}</span>)}
     </div>
   </div>

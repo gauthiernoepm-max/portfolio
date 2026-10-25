@@ -70,7 +70,7 @@ export const projects: Project[] = [
     slug: 'culture-club',
     name: 'Culture Club',
     year: '2026',
-    status: 'live',
+    status: 'soon',
     url: 'https://culture-club.cc',
     stack: ['Next.js', 'Supabase', 'Tailwind', 'Auth', 'FR / EN'],
     cover: '/shots/culture-club.webp',
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     slug: 'incxnnue-lab',
     name: 'Incxnnue Lab',
     year: '2026',
-    status: 'live',
+    status: 'soon',
     url: 'https://incxnnue-lab.vercel.app/fr',
     stack: ['Next.js', 'WebGL', 'Cal.com', 'Resend', 'Stripe', 'FR / EN'],
     cover: '/shots/incxnnue-lab.webp',
@@ -163,6 +163,10 @@ export const projects: Project[] = [
           body: 'Workshops, prices, copy and visuals live in data files. The site shipped as a complete first draft the brand fills in itself.',
         },
       ],
+    },
+    note: {
+      fr: 'Premier jet complet et en ligne : textes, prix et visuels sont encore des placeholders.',
+      en: 'First complete draft, already live: copy, prices and visuals are still placeholders.',
     },
   },
   {
