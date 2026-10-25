@@ -1,0 +1,90 @@
+---
+import { site, stack, ui } from '../data/site';
+import type { Lang } from '../data/site';
+import { projects } from '../data/projects';
+import ProjectCard from './ProjectCard.astro';
+import { withBase } from '../lib/path';
+
+const { lang } = Astro.props as { lang: Lang };
+const t = ui[lang];
+const home = withBase(`/${lang}/`);
+---
+
+<section class="relative pb-6 pt-8">
+  <div class="dot-grid"></div>
+
+  <div class="relative">
+    <p
+      class="mb-4 inline-flex items-center gap-2 rounded-full border border-line bg-bg px-2.5 py-[3px] text-[11px] text-muted"
+    >
+      <span class="size-1.5 rounded-full bg-[#22c55e]" style="box-shadow:0 0 0 3px rgba(34,197,94,0.18)"></span>
+      {t.badge}
+    </p>
+
+    <h1 class="m-0 text-[clamp(27px,6vw,38px)] font-semibold">
+      <span class="block">{t.h1[0]}</span>
+      <span class="block text-muted">{t.h1[1]}</span>
+    </h1>
+
+    <p class="mb-5 mt-3 max-w-[46ch] text-[14.5px] text-muted">{t.sub}</p>
+
+    <div class="flex flex-wrap gap-2">
+      <a class="btn btn-primary" href={site.cal} target="_blank" rel="noopener">
+        {t.ctaPrimary}
+        <span aria-hidden="true">↗</span>
+      </a>
+      <a class="btn btn-ghost" href={`${home}#work`}>{t.ctaSecondary}</a>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="mt-6 scroll-mt-6 border-t border-line pt-5">
+  <div class="mb-3.5 flex items-baseline justify-between">
+    <h2 class="eyebrow">{t.workEyebrow}</h2>
+    <span class="eyebrow">{t.workCount}</span>
+  </div>
+
+  <div class="grid gap-2.5 sm:grid-cols-2">
+    {projects.map((project, index) => <ProjectCard project={project} lang={lang} eager={index < 2} />)}
+  </div>
+</section>
+
+<section id="about" class="mt-10 scroll-mt-6 border-t border-line pt-5">
+  <h2 class="eyebrow mb-3">{t.aboutEyebrow}</h2>
+  <div class="grid gap-4 sm:grid-cols-[1.15fr_1fr]">
+    <div class="text-[13.5px]">
+      <p class="m-0 font-medium">{t.aboutLead}</p>
+      <p class="m-0 mt-2 text-muted">{t.aboutBody}</p>
+    </div>
+    <div>
+      <p class="eyebrow mb-2 text-[10px]">{t.stackLabel}</p>
+      <div class="flex flex-wrap gap-1">
+        {stack.map((item) => <span class="tag">{item}</span>)}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section
+  id="contact"
+  class="mt-9 flex scroll-mt-6 flex-wrap items-center justify-between gap-4 rounded-[16px] bg-fg px-5 py-5 text-bg"
+>
+  <div>
+    <h2 class="m-0 text-[17px] font-semibold tracking-[-0.02em]">{t.contactTitle}</h2>
+    <p class="m-0 mt-1 text-[12px] opacity-65">{t.contactSub}</p>
+  </div>
+  <div class="flex flex-wrap items-center gap-3">
+    <a
+      class="btn bg-bg text-fg no-underline hover:opacity-90"
+      href={site.cal}
+      target="_blank"
+      rel="noopener"
+    >
+      {t.contactCta}
+      <span aria-hidden="true">↗</span>
+    </a>
+    <a class="text-[12px] opacity-70 underline-offset-2 hover:underline" href={`mailto:${site.email}`}
+      >{t.contactAlt}</a
+    >
+  </div>
+</section>

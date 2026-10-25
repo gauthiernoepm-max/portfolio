@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CaseStudy from '../../../components/CaseStudy.astro';
+import { projects } from '../../../data/projects';
+import { ui } from '../../../data/site';
+
+export function getStaticPaths() {
+  return projects.map((project, index) => ({
+    params: { slug: project.slug },
+    props: { project, next: projects[(index + 1) % projects.length] },
+  }));
+}
+
+const { project, next } = Astro.props;
+const t = ui.fr;
+---
+
+<BaseLayout
+  lang="fr"
+  title={`${project.name} — ${project.tagline.fr} · Gauthier Combes`}
+  description={project.intro.fr}
+  altHref={`/en/work/${project.slug}/`}
+>
+  <CaseStudy project={project} lang="fr" next={next} />
+</BaseLayout>

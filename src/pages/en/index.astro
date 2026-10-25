@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Home from '../../components/Home.astro';
+import { ui } from '../../data/site';
+---
+
+<BaseLayout lang="en" title={ui.en.title} description={ui.en.description} altHref="/fr/">
+  <Home lang="en" />
+</BaseLayout>

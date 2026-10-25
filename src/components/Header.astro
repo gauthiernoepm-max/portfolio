@@ -1,0 +1,53 @@
+---
+import { ui } from '../data/site';
+import type { Lang } from '../data/site';
+import { withBase } from '../lib/path';
+
+interface Props {
+  lang: Lang;
+  altHref?: string;
+}
+
+const { lang, altHref } = Astro.props;
+const t = ui[lang];
+const home = withBase(`/${lang}/`);
+const langHref = altHref ? withBase(altHref) : withBase(`/${lang === 'fr' ? 'en' : 'fr'}/`);
+---
+
+<header class="relative flex items-center justify-between gap-3 py-4">
+  <a
+    href={home}
+    class="flex items-center gap-2 text-[13.5px] font-semibold tracking-[-0.02em] no-underline"
+  >
+    <span
+      class="grid size-[18px] place-items-center rounded-[5px] bg-fg text-[10px] font-bold text-bg"
+      aria-hidden="true">G</span
+    >
+    Gauthier Combes
+  </a>
+
+  <nav class="flex items-center gap-1.5 text-[12.5px] sm:gap-3.5">
+    <a href={`${home}#work`} class="hidden text-muted no-underline hover:text-fg sm:inline"
+      >{t.nav.work}</a
+    >
+    <a href={`${home}#about`} class="hidden text-muted no-underline hover:text-fg sm:inline"
+      >{t.nav.about}</a
+    >
+    <a
+      href={langHref}
+      class="rounded-full border border-line px-2.5 py-[3px] text-[11.5px] text-muted no-underline hover:bg-chip hover:text-fg"
+      hreflang={lang === 'fr' ? 'en' : 'fr'}>{lang === 'fr' ? 'EN' : 'FR'}</a
+    >
+    <button
+      type="button"
+      data-theme-toggle
+      aria-label={lang === 'fr' ? 'Changer de thème' : 'Toggle theme'}
+      class="grid size-[26px] cursor-pointer place-items-center rounded-full border border-line bg-bg text-fg hover:bg-chip"
+    >
+      <svg viewBox="0 0 24 24" class="size-[13px]" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none" />
+      </svg>
+    </button>
+  </nav>
+</header>

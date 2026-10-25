@@ -1,0 +1,27 @@
+---
+import { site, ui } from '../data/site';
+import type { Lang } from '../data/site';
+
+const { lang } = Astro.props as { lang: Lang };
+const t = ui[lang];
+const year = new Date().getFullYear();
+const links = [
+  { href: `mailto:${site.email}`, label: 'Email' },
+  { href: site.linkedin, label: 'LinkedIn' },
+  { href: site.github, label: 'GitHub' },
+  { href: site.cal, label: 'Cal.com' },
+];
+---
+
+<footer class="mt-14 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-5">
+  <div class="flex flex-wrap gap-3.5 text-[11.5px] text-muted">
+    {
+      links.map((link) => (
+        <a href={link.href} class="no-underline hover:text-fg" rel="me noopener" target={link.href.startsWith('http') ? '_blank' : undefined}>
+          {link.label}
+        </a>
+      ))
+    }
+  </div>
+  <p class="text-[11px] text-muted">© {year} {t.footerRights}</p>
+</footer>

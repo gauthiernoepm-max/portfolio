@@ -1,0 +1,130 @@
+---
+import { ui } from '../data/site';
+import type { Lang } from '../data/site';
+import type { Project } from '../data/projects';
+import { withBase } from '../lib/path';
+
+interface Props {
+  project: Project;
+  lang: Lang;
+  next: Project;
+}
+
+const { project, lang, next } = Astro.props;
+const t = ui[lang];
+const home = withBase(`/${lang}/`);
+const nextHref = withBase(`/${lang}/work/${next.slug}/`);
+---
+
+<a
+  href={`${home}#work`}
+  class="mt-1 inline-flex items-center gap-1.5 text-[12px] text-muted no-underline hover:text-fg"
+>
+  <span aria-hidden="true">←</span>{t.backHome}
+</a>
+
+<article class="mt-4">
+  <p class="eyebrow">{project.name} · {project.year}</p>
+
+  <h1 class="mb-3 mt-2 max-w-[26ch] text-[clamp(24px,5vw,32px)] font-semibold">
+    {project.tagline[lang]}
+  </h1>
+
+  <p class="mb-6 max-w-[58ch] text-[14px] text-muted">{project.intro[lang]}</p>
+
+  <dl class="mb-7 grid gap-x-6 gap-y-3 border-y border-line py-4 text-[12.5px] sm:grid-cols-2">
+    <div>
+      <dt class="eyebrow text-[10px]">{t.caseMeta.role}</dt>
+      <dd class="m-0 mt-1">{t.role}</dd>
+    </div>
+    <div>
+      <dt class="eyebrow text-[10px]">{t.caseMeta.stack}</dt>
+      <dd class="m-0 mt-1 flex flex-wrap gap-1">
+        {project.stack.map((item) => <span class="tag">{item}</span>)}
+      </dd>
+    </div>
+    <div>
+      <dt class="eyebrow text-[10px]">{t.caseMeta.status}</dt>
+      <dd class="m-0 mt-1 flex items-center gap-1.5">
+        <span
+          class:list={[
+            'size-1.5 rounded-full',
+            project.status === 'live' ? 'bg-[#22c55e]' : 'bg-[#eab308]',
+          ]}
+        ></span>
+        {project.status === 'live' ? t.live : t.soon}
+      </dd>
+    </div>
+    {project.url && (
+      <div>
+        <dt class="eyebrow text-[10px]">{lang === 'fr' ? 'Lien' : 'Link'}</dt>
+        <dd class="m-0 mt-1">
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener"
+            class="underline decoration-line underline-offset-2 hover:decoration-fg"
+          >
+            {project.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+          </a>
+        </dd>
+      </div>
+    )}
+  </dl>
+
+  <figure class="m-0 reveal">
+    <img
+      src={withBase(project.cover)}
+      alt={project.coverAlt}
+      class="w-full rounded-[12px] border border-line bg-bg-soft"
+      loading="eager"
+      decoding="async"
+    />
+    <figcaption class="mt-2 text-[11px] text-muted">{project.name} — {project.year}</figcaption>
+  </figure>
+
+  <div class="mt-8 grid gap-6">
+    {
+      project.points[lang].map((point, index) => (
+        <section class="reveal grid gap-1.5 border-t border-line pt-3.5 sm:grid-cols-[auto_1fr] sm:gap-5">
+          <span class="font-mono text-[11px] text-muted">0{index + 1}</span>
+          <div>
+            <h2 class="m-0 text-[15px] font-semibold tracking-[-0.02em]">{point.title}</h2>
+            <p class="m-0 mt-1.5 max-w-[60ch] text-[13.5px] text-muted">{point.body}</p>
+          </div>
+        </section>
+      ))
+    }
+  </div>
+
+  {
+    project.note && (
+      <p class="mt-6 rounded-[10px] border border-line bg-bg-soft px-3.5 py-2.5 text-[12px] text-muted">
+        {project.note[lang]}
+      </p>
+    )
+  }
+
+  <div class="mt-9 flex flex-wrap gap-2">
+    {
+      project.url && (
+        <a class="btn btn-primary" href={project.url} target="_blank" rel="noopener">
+          {t.view}
+          <span aria-hidden="true">↗</span>
+        </a>
+      )
+    }
+    <a class="btn btn-ghost" href={`${home}#work`}>{t.backHome}</a>
+  </div>
+
+  <a
+    href={nextHref}
+    class="reveal mt-10 flex items-center justify-between gap-4 border-t border-line pt-4 no-underline"
+  >
+    <span>
+      <span class="eyebrow text-[10px]">{t.nextProject}</span>
+      <span class="mt-1 block text-[15px] font-semibold tracking-[-0.02em]">{next.name}</span>
+    </span>
+    <span class="text-muted" aria-hidden="true">→</span>
+  </a>
+</article>

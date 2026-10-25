@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { ui } from '../data/site';
+import { withBase } from '../lib/path';
+
+const t = ui.fr;
+---
+
+<BaseLayout lang="fr" title="404 — Gauthier Combes" description={t.notFoundBody}>
+  <section class="relative py-16">
+    <div class="dot-grid"></div>
+    <div class="relative">
+      <p class="eyebrow">404</p>
+      <h1 class="mb-2 mt-2 text-[clamp(24px,5vw,32px)]">{t.notFoundTitle}</h1>
+      <p class="mb-5 max-w-[42ch] text-[14px] text-muted">{t.notFoundBody}</p>
+      <a class="btn btn-primary" href={withBase('/fr/')}>{t.notFoundCta}</a>
+    </div>
+  </section>
+</BaseLayout>

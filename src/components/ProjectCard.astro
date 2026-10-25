@@ -1,0 +1,46 @@
+---
+import { ui } from '../data/site';
+import type { Lang } from '../data/site';
+import type { Project } from '../data/projects';
+import { withBase } from '../lib/path';
+
+interface Props {
+  project: Project;
+  lang: Lang;
+  eager?: boolean;
+}
+
+const { project, lang, eager = false } = Astro.props;
+const t = ui[lang];
+const href = withBase(`/${lang}/work/${project.slug}/`);
+---
+
+<a href={href} class="card reveal">
+  <div class="thumb">
+    <img
+      src={withBase(project.cover)}
+      alt={project.coverAlt}
+      width="800"
+      height="500"
+      loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
+    />
+    {
+      project.status === 'soon' && (
+        <span class="absolute right-2 top-2 rounded-full bg-white/92 px-2 py-[2px] text-[9.5px] font-semibold uppercase tracking-[0.06em] text-[#3f3f46] backdrop-blur">
+          {t.soon}
+        </span>
+      )
+    }
+  </div>
+  <div class="bg-bg px-3 py-3">
+    <div class="flex items-baseline justify-between gap-2">
+      <span class="text-[13.5px] font-semibold tracking-[-0.015em]">{project.name}</span>
+      <span class="text-[11px] tabular-nums text-muted">{project.year}</span>
+    </div>
+    <p class="mb-2 mt-0.5 text-[12px] leading-snug text-muted">{project.tagline[lang]}</p>
+    <div class="flex flex-wrap gap-1">
+      {project.stack.slice(0, 3).map((item) => <span class="tag">{item}</span>)}
+    </div>
+  </div>
+</a>
