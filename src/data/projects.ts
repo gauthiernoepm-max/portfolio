@@ -98,8 +98,7 @@ export const projects: Project[] = [
           body: "Référence Service95 : typographie magazine, photos plein cadre, carrousels Embla. Un site privé n’a aucune raison d’être laid.",
         },
       ],
-      en: [
-        {
+      en: [        {
           title: 'The circle is the filter',
           body: 'You join with an invite code, and you only see recommendations from your own circle. No algorithm, no strangers: trust is the product.',
         },
@@ -112,6 +111,10 @@ export const projects: Project[] = [
           body: 'Service95 as the reference: magazine typography, full-bleed photos, Embla carousels. A private site has no reason to be ugly.',
         },
       ],
+    },
+    note: {
+      fr: 'Site privé : l’accès se fait sur invitation, la page de connexion est donc la seule page publique.',
+      en: 'Private site: access is invite-only, so the sign-in screen is the only public page.',
     },
   },
   {
