@@ -2,6 +2,7 @@
 import { ui } from '../data/site';
 import type { Lang } from '../data/site';
 import { withBase } from '../lib/path';
+import { avatarSrc, hasAvatar } from '../lib/avatar';
 
 interface Props {
   lang: Lang;
@@ -19,10 +20,24 @@ const langHref = altHref ? withBase(altHref) : withBase(`/${lang === 'fr' ? 'en'
     href={home}
     class="flex items-center gap-2 text-[13.5px] font-semibold tracking-[-0.02em] no-underline"
   >
-    <span
-      class="grid size-[18px] place-items-center rounded-[5px] bg-fg text-[10px] font-bold text-bg"
-      aria-hidden="true">G</span
-    >
+    {
+      hasAvatar ? (
+        <img
+          src={avatarSrc}
+          alt=""
+          width="24"
+          height="24"
+          class="size-[24px] rounded-full border border-line bg-white object-cover"
+        />
+      ) : (
+        <span
+          class="grid size-[18px] place-items-center rounded-[5px] bg-fg text-[10px] font-bold text-bg"
+          aria-hidden="true"
+        >
+          G
+        </span>
+      )
+    }
     Gauthier Combes
   </a>
 

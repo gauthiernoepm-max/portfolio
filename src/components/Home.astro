@@ -4,6 +4,7 @@ import type { Lang } from '../data/site';
 import { projects } from '../data/projects';
 import ProjectCard from './ProjectCard.astro';
 import { withBase } from '../lib/path';
+import { avatarSrc, hasAvatar } from '../lib/avatar';
 
 const { lang } = Astro.props as { lang: Lang };
 const t = ui[lang];
@@ -52,9 +53,22 @@ const home = withBase(`/${lang}/`);
 <section id="about" class="mt-10 scroll-mt-6 border-t border-line pt-5">
   <h2 class="eyebrow mb-3">{t.aboutEyebrow}</h2>
   <div class="grid gap-4 sm:grid-cols-[1.15fr_1fr]">
-    <div class="text-[13.5px]">
-      <p class="m-0 font-medium">{t.aboutLead}</p>
-      <p class="m-0 mt-2 text-muted">{t.aboutBody}</p>
+    <div class="flex gap-3">
+      {
+        hasAvatar && (
+          <img
+            src={avatarSrc}
+            alt={`Portrait de ${site.name}`}
+            width="52"
+            height="52"
+            class="size-[52px] shrink-0 rounded-full border border-line bg-white object-cover"
+          />
+        )
+      }
+      <div class="text-[13.5px]">
+        <p class="m-0 font-medium">{t.aboutLead}</p>
+        <p class="m-0 mt-2 text-muted">{t.aboutBody}</p>
+      </div>
     </div>
     <div>
       <p class="eyebrow mb-2 text-[10px]">{t.stackLabel}</p>
