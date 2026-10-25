@@ -11,7 +11,9 @@ const tmpDir = path.join(root, '.shots-tmp');
 
 const targets = [
   { slug: 'kosmos', url: 'https://kosmos-lab.vercel.app/fr' },
-  { slug: 'culture-club', url: 'https://culture-club.cc' },
+  // Culture Club has no public page (every route redirects to /login): its shot
+  // comes from the signed-in UI and is kept as a manual asset.
+  { slug: 'culture-club', url: null },
   { slug: 'incxnnue-lab', url: 'https://incxnnue-lab.vercel.app/fr' },
   { slug: 'ghys-et-martine', url: process.env.GHYS_URL ?? 'http://localhost:4310' },
 ];
@@ -22,6 +24,11 @@ await mkdir(tmpDir, { recursive: true });
 const browser = await chromium.launch();
 
 for (const target of targets) {
+  if (!target.url) {
+    console.log(`– ${target.slug} : capture manuelle conservée`);
+    continue;
+  }
+
   const page = await browser.newPage({
     viewport: { width: 1440, height: 900 },
     deviceScaleFactor: 1,
