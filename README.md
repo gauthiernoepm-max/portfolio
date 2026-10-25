@@ -50,6 +50,16 @@ pas en ligne : le script pointe vers `http://localhost:4310` (lancer
 `npm run dev -- --port 4310` dans `side-business/boardgame-store`) ou vers
 `$GHYS_URL`.
 
+Culture Club est marqué « capture manuelle » : le site n'a pas de page publique,
+sa capture vient de l'UI connectée et n'est pas régénérée automatiquement.
+
+## Portrait
+
+Le portrait vient de `assets/avatar.png` (source 2400×2400). `npm run avatar`
+détoure le visage, produit `public/avatar.webp` (bloc À propos) et
+`public/avatar-sm.webp` (pastille du header). Supprimer les deux fichiers webp
+fait réapparaître le monogramme « G ».
+
 ## Déploiement
 
 Push sur `main` → GitHub Actions construit et publie `dist/` sur Pages

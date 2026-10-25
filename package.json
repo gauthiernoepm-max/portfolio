@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "shots": "node scripts/shots.mjs"
+    "shots": "node scripts/shots.mjs",
+    "avatar": "node scripts/avatar.mjs && cwebp -q 90 /tmp/avatar-512.png -o public/avatar.webp"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

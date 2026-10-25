@@ -2,7 +2,7 @@
 import { ui } from '../data/site';
 import type { Lang } from '../data/site';
 import { withBase } from '../lib/path';
-import { avatarSrc, hasAvatar } from '../lib/avatar';
+import { avatarSmallSrc, hasAvatar } from '../lib/avatar';
 
 interface Props {
   lang: Lang;
@@ -23,11 +23,11 @@ const langHref = altHref ? withBase(altHref) : withBase(`/${lang === 'fr' ? 'en'
     {
       hasAvatar ? (
         <img
-          src={avatarSrc}
+          src={avatarSmallSrc}
           alt=""
-          width="24"
-          height="24"
-          class="size-[24px] rounded-full border border-line bg-white object-cover"
+          width="28"
+          height="28"
+          class="size-[28px] rounded-full border border-line bg-white object-cover"
         />
       ) : (
         <span
