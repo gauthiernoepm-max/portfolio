@@ -34,7 +34,7 @@ export const ui = {
     contactAlt: 'ou écrire un email',
     footerRights: 'Conçu et développé par Gauthier Combes',
     soon: 'En préparation',
-    live: 'En ligne',
+    live: 'Live',
     view: 'Voir le site',
     caseMeta: { year: 'Année', role: 'Rôle', stack: 'Stack', status: 'Statut' },
     role: 'Conception, design et développement',
@@ -89,5 +89,6 @@ export const stack = [
   'Stripe',
   'Resend',
   'Cal.com',
+  'Vercel',
   'Figma',
 ];
