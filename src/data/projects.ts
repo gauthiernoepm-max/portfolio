@@ -122,7 +122,7 @@ export const projects: Project[] = [
     name: 'Incxnnue Lab',
     year: '2026',
     status: 'soon',
-    url: 'https://incxnnue-lab.vercel.app/fr',
+    url: 'https://incxnnue-lab.com/fr',
     stack: ['Next.js', 'WebGL', 'Cal.com', 'Resend', 'Stripe', 'FR / EN'],
     cover: '/shots/incxnnue-lab.webp',
     coverAlt: 'Page d’accueil d’Incxnnue Lab, ateliers d’impression 3D et d’optique',

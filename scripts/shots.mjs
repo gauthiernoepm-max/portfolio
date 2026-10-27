@@ -14,7 +14,7 @@ const targets = [
   // Culture Club has no public page (every route redirects to /login): its shot
   // comes from the signed-in UI and is kept as a manual asset.
   { slug: 'culture-club', url: null },
-  { slug: 'incxnnue-lab', url: 'https://incxnnue-lab.vercel.app/fr' },
+  { slug: 'incxnnue-lab', url: 'https://incxnnue-lab.com/fr' },
   { slug: 'ghys-et-martine', url: process.env.GHYS_URL ?? 'http://localhost:4310' },
 ];
 
